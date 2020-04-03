@@ -5,7 +5,7 @@ const inquirer = require("inquirer");
 
 // TODO: import api and generateMarkdown modules from ./utils/
 const api = require("./utils/api");
-const generateMarkdown = require("./utils/generateMarkdown");
+// const generateMarkdown = require("./utils/generateMarkdown");
 
 // TODO: Add inquirer question objects to questions array. This should
 // include all the necessary questions for the user.
@@ -62,15 +62,15 @@ const questions = [
 // TODO: Write function to synchronously write data in the
 // current working directory to file named for the fileName parameter.
 // The data parameter is the text to write to the file.
-function writeToFile(fileName, data) {
-    return fs.writeFile(fileName, generateMarkdown(data), function (error) {
-        if (error) {
-            console.log(error)
-            return;
-        }
-        console.log("Successfully created readme")
-    });
-};
+// function writeToFile(fileName, data) {
+//     return fs.writeFile(fileName, generateMarkdown(data), function (error) {
+//         if (error) {
+//             console.log(error)
+//             return;
+//         }
+//         console.log("Successfully created readme")
+//     });
+// };
 
 // TODO: Use inquirer to prompt the user for each question in the
 // questions array. Then call api.getUser to fetch the user profile
@@ -80,15 +80,16 @@ function init() {
     inquirer
         .prompt(questions)
         .then(answers => {
-            return api.getUser(answers);
+            return api.getUser(answers.username);
         })
-        .then(() => {
-            return writeToFile();
+        .then(response => {
+            console.log(response.data)
         })
+        // .then(() => {
+        //     return writeToFile();
+        // })
         .catch(error => {
-            //if anything goes wrong
-            console.log("could not create file")
-            //exit
+            console.log("Could not create file")
             process.exit(1);
         })
 };
