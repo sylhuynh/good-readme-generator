@@ -1,6 +1,12 @@
 // TODO: import fs, path and inquirer modules
+const fs = require("fs");
+const util = require("util");
+
+const inquirer = require("inquirer");
 
 // TODO: import api and generateMarkdown modules from ./utils/
+const api = require("utils/api.js");
+const createMarkdown = require("utils/generateMarkdown.js");
 
 // TODO: Add inquirer question objects to questions array. This should
 // include all the necessary questions for the user.
@@ -12,6 +18,7 @@
 // }
 const questions = [];
 
+inquirer.prompt([])
 // TODO: Write function to synchronously write data in the
 // current working directory to file named for the fileName parameter.
 // The data parameter is the text to write to the file.
