@@ -43,7 +43,7 @@ const questions = [
     },
     {
         type: "input",
-        message: "What kind of license should your projecy have?",
+        message: "What kind of license should your project have?",
         name: "license"
     },
     {
