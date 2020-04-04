@@ -4,7 +4,7 @@ function generateMarkdown(answers, data) {
 
   return `
 ## ${answers.projectname}
-[insert license badge here]
+[![License](https://img.shields.io/badge/License-${answers.license}-blue.svg)](https://opendatacommons.org/licenses/by/)
 
 ## Description 
 ${answers.description}
@@ -37,8 +37,9 @@ ${answers.tests}
 
 ## Questions
 
-![${login} avatar](${avatar_url})
 If you have any questions about the repo, open an issue or contact ![${login}](${html_url}) directly at sylhuynh76@gmail.com
+
+![${login} avatar](${avatar_url})
 
 `;
 }
