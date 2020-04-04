@@ -18,6 +18,7 @@ ${answers.description}
 * [Questions](#questions)
 
 ## Installation
+To install necessary dependencies, run the following command:
 ${answers.installation}
 
 ## Usage
