@@ -80,11 +80,13 @@ function init() {
     inquirer
         .prompt(questions)
         .then(answers => {
-            return api.getUser(answers.username);
-        })
-        .then(response => {
-            const markdown = generateMarkdown(response);
-            return writeToFile("output/readme.md", markdown);
+            api.getUser(answers.username)
+            .then(response => {
+                // console.log(response.data)
+                // console.log(answers)
+                const markdown = generateMarkdown(answers, response.data);
+                return writeToFile("output/readme.md", markdown);
+            })
         })
         .catch(error => {
             console.log("Could not create file")
